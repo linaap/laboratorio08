@@ -4,6 +4,7 @@
 #include <string>
 
 int stringAInt(std::string texto);
-
+void revisarSiglas(char texto[]);
+char identificarCharMasRepetido(char texto[]);
 
 #endif
