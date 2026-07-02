@@ -1,6 +1,8 @@
 #include "laboratorio8.h"
 #include <stdio.h>
 #include <string>
+#include <math.h> // para la iair cuadrada del ejericicio 1 :]
+
 
 //hola
 int stringAInt(std::string texto){
@@ -50,4 +52,86 @@ char identificarCharMasRepetido(char texto[]){	//Es char porque (LIN21)
 	
 	return caracter;	
 }
+// -------------------------- ejercicio1----------------------
+double calcularMedia(double arreglo[], int n) 
+{
+    if (n <= 0) return 0.0; // Protección para arreglos vacíos
+    
+    double suma = 0.0;
+    for (int i = 0; i < n; i++) 
+	{
+        suma += arreglo[i];
+    }
+    return suma / n;
+}
 
+double calcularVarianza(double arreglo[], int n) {
+    if (n <= 1) return 0.0; // Evitar división por cero (n-1)
+    
+    double media = calcularMedia(arreglo, n);
+    double suma = 0.0;
+    
+    for (int i = 0; i < n; i++) 
+	{
+        suma += pow(arreglo[i] - media, 2);
+    }
+    // se calcula la varianza muestral dividiendo entre n - 1
+    return suma / (n - 1);
+}
+
+double calcularDesviacionEstandar(double arreglo[], int n) 
+{
+    return sqrt(calcularVarianza(arreglo, n));
+}
+
+double calcularCurtosis(double arreglo[], int n) 
+{
+    if (n <= 1) return 0.0;
+    
+    double media = calcularMedia(arreglo, n);
+    double desviacion = calcularDesviacionEstandar(arreglo, n);
+    
+    // Si la desviación estándar es 0, no hay dispersión y la curtosis es indefinida
+    if (desviacion == 0.0) return 0.0; 
+
+    double suma = 0.0;
+    for (int i = 0; i < n; i++) 
+	{
+        suma += pow(arreglo[i] - media, 4);
+    }
+    
+    // Momento central 
+    double momento = suma / n; 
+    
+    // Formula de la curtosis
+    return momento / pow(desviacion, 4);
+}
+
+double encontrarMaximo(double arreglo[], int n) 
+{
+    if (n <= 0) return 0.0;
+    
+    double maximo = arreglo[0];
+    for (int i = 1; i < n; i++) 
+	{
+        if (arreglo[i] > maximo) 
+		{
+            maximo = arreglo[i];
+        }
+    }
+    return maximo;
+}
+
+double encontrarMinimo(double arreglo[], int n) {
+    if (n <= 0) return 0.0;
+    
+    double minimo = arreglo[0];
+    for (int i = 1; i < n; i++) 
+	{
+        if (arreglo[i] < minimo) 
+		{
+            minimo = arreglo[i];
+        }
+    }
+    return minimo;
+}
