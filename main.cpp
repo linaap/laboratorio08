@@ -4,6 +4,10 @@
 
 using namespace std;
 
+void problema1();
+void problema2();
+void problema3();
+
 int main(){
 	
 	
