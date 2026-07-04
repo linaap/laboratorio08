@@ -10,15 +10,7 @@ int main(){
 	cout << "Ejercicio 3" << endl;
 	
 	//problema1();
-	
-	/*
-	cout << "String a int" << endl;
-	string texto;
-	cout << "Ingrese un texto para transformar a entero: ";
-	cin >> texto;
-	cout << "El texto transformado a entero es: " << stringAInt(texto) << endl;
-	*/
-
+	//problema2();
 	//problema3();
 	
 	return 0;
@@ -35,6 +27,15 @@ void problema1(){
 	printf("Las siglas de la frase son: \n");
 	revisarSiglas(texto);
 
+}
+
+void problema2(){
+
+	cout << "String a int" << endl;
+	string texto;
+	cout << "Ingrese un texto para transformar a entero: ";
+	cin >> texto;
+	cout << "El texto transformado a entero es: " << stringAInt(texto) << endl;
 }
 
 void problema3(){
