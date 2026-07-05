@@ -1,8 +1,10 @@
 #include "laboratorio8.h"
 #include <stdio.h>
+#include <iostream>
 #include <string>
 #include <math.h> // para la iair cuadrada del ejericicio 1 :]
 
+using namespace std;
 
 //hola
 int stringAInt(std::string texto){
@@ -134,4 +136,73 @@ double encontrarMinimo(double arreglo[], int n) {
         }
     }
     return minimo;
+}
+
+//------------------------------Ejercicio2-------------------
+void leerMatriz(int matriz[MAX][MAX], int filas, int columnas) {
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            cout << "Posicion[" << i << "][" << j << "]: ";
+            cin >> matriz[i][j];
+        }
+    }
+}
+
+int buscarMaximo(int matriz[MAX][MAX], int filas, int columnas) {
+    int maximo = matriz[0][0]; 
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            if (matriz[i][j] > maximo) {
+                maximo = matriz[i][j];
+            }
+        }
+    }
+    return maximo;
+}
+
+
+int buscarMinimo(int matriz[MAX][MAX], int filas, int columnas) {
+    int minimo = matriz[0][0]; 
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            if (matriz[i][j] < minimo) {
+                minimo = matriz[i][j];
+            }
+        }
+    }
+    return minimo;
+}
+
+
+int calcularTraza(int matriz[MAX][MAX], int filas, int columnas) {
+    int suma = 0;
+    for (int i = 0; i < filas; i++) {
+        suma += matriz[i][i]; 
+    }
+    return suma;
+}
+
+
+void obtenerTranspuesta(int origen[MAX][MAX], int destino[MAX][MAX], int filas, int columnas) {
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            destino[j][i] = origen[i][j]; 
+        }
+    }
+}
+
+
+bool esSimetrica(int matriz[MAX][MAX], int filas, int columnas) {
+    if (filas != columnas) {
+        return false;
+    }
+    
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            if (matriz[i][j] != matriz[j][i]) {
+                return false; 
+            }
+        }
+    }
+    return true; 
 }
